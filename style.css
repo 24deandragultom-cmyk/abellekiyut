@@ -1,0 +1,153 @@
+/* Palet Warna Stitch/Lilo Aesthetic: */
+/* Biru Utama (Stitch/Background): #87CEEB (Sky Blue) */
+/* Biru Tua (Stitch/Hover): #4682B4 (Steel Blue) */
+/* Pink (Lilo/Aksen X): #FFB6C1 (Light Pink) */
+/* Merah (Aksen O): #FF69B4 (Hot Pink) */
+/* Putih (Teks/Grid): #FFFFFF */
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Gaya yang ceria */
+    background-color: #87CEEB; /* Biru langit/Stitch aesthetic */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    background-image: url('images/background-pattern.png'); /* Jika Anda memiliki pattern/gambar background bertema */
+    background-size: cover;
+}
+
+.container {
+    background-color: rgba(70, 130, 180, 0.9); /* Steel Blue transparan */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 5px solid #FFB6C1; /* Border pink Lilo */
+    max-width: 90%;
+}
+
+h1 {
+    color: #FFB6C1; /* Pink Lilo */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #4682B4; /* Shadow untuk menonjolkan */
+}
+
+.status-area {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #4682B4; /* Biru tua */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin: 0 auto 30px auto;
+    width: 320px;
+    height: 320px;
+    /* Efek 3D ringan pada grid */
+    border: 5px solid #FFB6C1;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.cell {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: 900;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    color: inherit; /* Warna teks akan diatur oleh kelas .x atau .o */
+    user-select: none; /* Mencegah seleksi teks */
+}
+
+.cell:hover {
+    background-color: #f0f8ff; /* Warna lebih terang saat hover */
+    transform: scale(1.05);
+}
+
+/* Gaya untuk Player X (Lilo/Pink) */
+.cell.x {
+    color: #FFB6C1; /* Pink Lilo */
+    text-shadow: 1px 1px 2px #d47e8b;
+}
+
+/* Gaya untuk Player O (Stitch/Merah Muda/Ungu) */
+.cell.o {
+    color: #FF69B4; /* Hot Pink/Merah Muda */
+    text-shadow: 1px 1px 2px #d0538a;
+}
+
+.cell:not(.x):not(.o):active {
+    /* Sedikit efek 'tekan' saat mengklik */
+    transform: scale(0.95);
+}
+
+/* Gaya saat menang */
+.cell.winning {
+    background-color: #98FB98; /* Hijau muda cerah */
+    border: 3px solid #3CB371;
+    animation: pulse 1s infinite alternate;
+}
+
+/* Animasi pulse untuk sel pemenang */
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 5px #98FB98;
+    }
+    to {
+        box-shadow: 0 0 20px #98FB98;
+    }
+}
+
+#restart-button {
+    background-color: #FFB6C1; /* Pink Lilo */
+    color: #4682B4; /* Steel Blue */
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 5px 0 #d47e8b; /* Efek tombol 3D */
+}
+
+#restart-button:hover {
+    background-color: #fca0ae;
+}
+
+#restart-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #d47e8b;
+}
+
+/* Opsi: Tambahkan gambar kecil Stitch/Lilo ke dalam sel X/O sebagai latar belakang */
+/* Pastikan Anda memiliki gambar X.png dan O.png di folder images/ */
+/*
+.cell.x {
+    background-image: url('images/lilo-x.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent; // Sembunyikan 'X'
+}
+.cell.o {
+    background-image: url('images/stitch-o.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent; // Sembunyikan 'O'
+}
+*/
